@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { t, tObject } from '../../i18n/utils';
+
+const locale = 'en';
+const title = t(locale, 'seo.over.title');
+const description = t(locale, 'seo.over.description');
+
+// Story paragraphs
+const storyParagraphs = tObject(locale, 'over.story.paragraphs') as string[];
+
+// Timeline data
+const timelineItems = [
+  { year: '2006', title: 'Started in professional kitchens', description: 'Began in hospitality at the age of fourteen' },
+  { year: '', title: 'Van der Valk, Vianen', description: 'Independent working chef' },
+  { year: '', title: 'Figi, Zeist', description: 'Specialised chef' },
+  { year: '2015', title: 'Focus on patisserie', description: 'The definitive choice for the pastry profession' },
+  { year: '', title: 'Grand Hotel Karel V, Utrecht', description: 'Head pastry chef (8 years)' },
+  { year: '2021', title: 'Own business', description: 'Started as independent pastry chef from Meerkerk' },
+];
+
+// Awards
+const awardItems = tObject(locale, 'over.awards.items') as Array<{ year: string; title: string; result: string }>;
+
+// Certifications
+const certItems = tObject(locale, 'over.certifications.items') as string[];
+
+// Education offerings
+const educationOfferings = tObject(locale, 'over.education.offerings') as Array<{ title: string; description: string }>;
+
+// Gallery images
+const galleryImages = [
+  { src: '/images/about/twiggy-shoot-1.jpg', alt: 'TWIGGY photo series — patisserie captured' },
+  { src: '/images/about/styled-shoot-eva-1.jpg', alt: 'Styled shoot — artisan patisserie' },
+  { src: '/images/about/studio-gijs-eva-1.jpg', alt: 'Studio — Gijsbert at work' },
+  { src: '/images/about/twiggy-shoot-3.jpg', alt: 'TWIGGY photo series — detail' },
+  { src: '/images/about/studio-patisserie.jpg', alt: 'Patisserie atelier Meerkerk' },
+  { src: '/images/about/styled-shoot-eva-2.jpg', alt: 'Styled shoot — presentation' },
+];
+---
+
+<BaseLayout title={title} description={description} locale={locale}>
+
+  <!-- Hero Section -->
+  <Hero
+    title={t(locale, 'over.hero.title')}
+    subtitle={t(locale, 'over.hero.subtitle')}
+    backgroundImage="/images/hero/gijsbert-portrait.jpg"
+  />
+
+  <!-- Biography Section -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Text column -->
+        <FadeIn>
+          <div>
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-chocolate mb-4">
+              {t(locale, 'over.story.title')}
+            </h2>
+            <span class="block w-12 h-0.5 bg-caramel rounded-full mb-8" aria-hidden="true" />
+            <div class="font-body text-base sm:text-lg text-chocolate/70 leading-relaxed space-y-6">
+              {storyParagraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+
+        <!-- Portrait image -->
+        <FadeIn delay={200}>
+          <div class="relative">
+            <div class="aspect-[3/4] overflow-hidden rounded-2xl">
+              <img
+                src="/images/about/gijsbert-portrait-1.jpg"
+                alt="Gijsbert van de Kraats — pastry chef"
+                class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <!-- Decorative accent -->
+            <div class="absolute -bottom-4 -right-4 w-24 h-24 border-2 border-caramel/20 rounded-2xl -z-10" aria-hidden="true" />
+          </div>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career Timeline -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title="Career"
+        subtitle="From first steps in the kitchen to independent business"
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 relative">
+        <!-- Vertical timeline line -->
+        <div class="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 bg-caramel/20" aria-hidden="true" />
+
+        <div class="space-y-8 sm:space-y-10">
+          {timelineItems.map((item, i) => (
+            <FadeIn delay={i * 100}>
+              <div class="relative pl-12 sm:pl-16">
+                <!-- Timeline dot -->
+                <div class:list={[
+                  'absolute left-0 sm:left-2 top-1 flex items-center justify-center rounded-full border-2 border-caramel',
+                  item.year ? 'w-8 h-8 sm:w-8 sm:h-8 bg-caramel' : 'w-3 h-3 sm:w-3 sm:h-3 bg-caramel/40 left-2.5 sm:left-4.5 top-2.5 border-0',
+                ]}>
+                  {item.year && (
+                    <span class="sr-only">{item.year}</span>
+                  )}
+                </div>
+
+                <!-- Content -->
+                <div>
+                  {item.year && (
+                    <span class="inline-block font-heading text-sm font-bold text-caramel mb-1">
+                      {item.year}
+                    </span>
+                  )}
+                  <h3 class="font-heading text-lg sm:text-xl font-bold text-chocolate">
+                    {item.title}
+                  </h3>
+                  <p class="font-body text-sm sm:text-base text-chocolate/60 mt-1">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'over.awards.title')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {awardItems.map((award, i) => (
+          <FadeIn delay={i * 100}>
+            <div class:list={[
+              'relative rounded-2xl p-6 sm:p-8 text-center border h-full flex flex-col items-center',
+              award.result.includes('1e') || award.result.includes('1st')
+                ? 'bg-caramel/10 border-caramel/30'
+                : 'bg-warm-white border-caramel/10',
+            ]}>
+              <!-- Trophy icon for 1st place -->
+              {(award.result.includes('1e') || award.result.includes('1st')) && (
+                <svg class="w-8 h-8 text-caramel mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M18.75 4.236c.982.143 1.954.317 2.916.52A6.003 6.003 0 0116.27 9.728M18.75 4.236V4.5c0 2.108-.966 3.99-2.48 5.228m0 0a6.023 6.023 0 01-2.77.672c-.992 0-1.929-.245-2.77-.672" />
+                </svg>
+              )}
+
+              <span class="font-heading text-2xl sm:text-3xl font-bold text-caramel">
+                {award.year}
+              </span>
+              <h3 class="font-heading text-base sm:text-lg font-bold text-chocolate mt-2">
+                {award.title}
+              </h3>
+              <span class:list={[
+                'inline-block mt-3 px-3 py-1 rounded-full text-xs font-medium font-body',
+                award.result.includes('1e') || award.result.includes('1st')
+                  ? 'bg-caramel text-white'
+                  : 'bg-chocolate/10 text-chocolate/70',
+              ]}>
+                {award.result}
+              </span>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'over.certifications.title')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 flex flex-wrap justify-center gap-4">
+        {certItems.map((cert, i) => (
+          <FadeIn delay={i * 100}>
+            <div class="flex items-center gap-3 bg-cream rounded-full px-6 py-3 border border-caramel/15">
+              <svg class="w-5 h-5 text-caramel flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+              </svg>
+              <span class="font-body text-sm sm:text-base font-medium text-chocolate">
+                {cert}
+              </span>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Masterclasses Section -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'over.education.title')}
+        centered
+      />
+
+      <FadeIn>
+        <p class="mt-6 text-center max-w-2xl mx-auto font-body text-base sm:text-lg text-chocolate/70 leading-relaxed">
+          {t(locale, 'over.education.text')}
+        </p>
+      </FadeIn>
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {educationOfferings.map((offering, i) => (
+          <FadeIn delay={i * 100}>
+            <div class="bg-warm-white rounded-2xl p-6 sm:p-8 border border-caramel/10 h-full">
+              <h3 class="font-heading text-lg sm:text-xl font-bold text-chocolate mb-3">
+                {offering.title}
+              </h3>
+              <p class="font-body text-sm sm:text-base text-chocolate/60 leading-relaxed">
+                {offering.description}
+              </p>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {galleryImages.map((img, i) => (
+          <FadeIn delay={i * 100}>
+            <div class="relative aspect-[3/4] overflow-hidden rounded-2xl group">
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <ContactCTA locale={locale} variant="dark" />
+
+</BaseLayout>
