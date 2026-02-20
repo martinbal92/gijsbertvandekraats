@@ -13,13 +13,13 @@
     "hero": {
       "title": "Ambachtelijke Patisserie",
       "subtitle": "Patisserie | Food Services | Onderwijs",
-      "description": "Bekroonde patisserie met liefde voor het vak. Van bruidstaarten op maat tot zakelijke patisserie — alles handgemaakt met de beste ingrediënten.",
+      "description": "Bekroonde patisserie met liefde voor het vak. Van bruidstaarten op maat tot zakelijke patisserie, alles handgemaakt met de beste ingrediënten.",
       "cta_primary": "Bekijk bruidstaarten",
       "cta_secondary": "Neem contact op"
     },
     "services": {
       "title": "Wat ik voor je kan maken",
-      "subtitle": "Van intieme bruiloften tot grote zakelijke evenementen — elk gebak verdient dezelfde aandacht en vakmanschap.",
+      "subtitle": "Van intieme bruiloften tot grote zakelijke evenementen: elk gebak verdient dezelfde aandacht en vakmanschap.",
       "bruidstaarten": {
         "title": "Bruidstaarten",
         "description": "Een bruidstaart op maat die perfect past bij jullie bruiloft. Handgemaakt, zonder fondant, met smaken die je nergens anders vindt."
@@ -30,7 +30,7 @@
       },
       "vijfheeren": {
         "title": "Vijf Heeren Koekjes",
-        "description": "Het ambachtelijke koekje uit de Vijfheerenlanden. Vijf unieke smaken in een stijlvolle geschenkdoos — het perfecte cadeau."
+        "description": "Het ambachtelijke koekje uit de Vijfheerenlanden. Vijf unieke smaken in een stijlvolle geschenkdoos. Het perfecte cadeau."
       },
       "onderwijs": {
         "title": "Onderwijs & Workshops",
@@ -46,7 +46,7 @@
     },
     "about_teaser": {
       "title": "Vakmanschap sinds 2006",
-      "description": "Al sinds mijn veertiende sta ik in de keuken. Na acht jaar als chef-patissier bij Grand Hotel Karel V koos ik in 2021 voor mijn eigen weg. Vanuit mijn atelier in Meerkerk maak ik nu patisserie waar ik helemaal achter sta — ambachtelijk, eerlijk en altijd met een vleugje vernieuwing.",
+      "description": "Al sinds mijn veertiende sta ik in de keuken. Na acht jaar als chef-patissier bij Grand Hotel Karel V koos ik in 2021 voor mijn eigen weg. Vanuit mijn atelier in Meerkerk maak ik nu patisserie waar ik helemaal achter sta: ambachtelijk, eerlijk en altijd met een vleugje vernieuwing.",
       "cta": "Meer over mijn verhaal"
     }
   },
@@ -57,7 +57,7 @@
     },
     "intro": {
       "title": "Jullie bruiloft, jullie taart",
-      "text": "Een bruidstaart bestellen doe je niet zomaar. Het is de taart die centraal staat op een van de mooiste dagen van je leven. Daarom maak ik elke bruidstaart op maat — afgestemd op jullie smaak, thema en wensen. Of jullie nu dromen van een klassieke trouwtaart met verse bloemen, een moderne bruidstaart zonder fondant, of juist iets heel eigenzinnigs: samen maken we er iets bijzonders van.\n\nAls patissier uit Meerkerk in de Vijfheerenlanden werk ik met verse, hoogwaardige ingrediënten en ambachtelijke technieken. Geen fondant of marsepein tenzij jullie dat willen — mijn bruidstaarten zijn puur, smaakvol en mooi. Ik lever bruidstaarten door heel Utrecht en omstreken, van de Vijfheerenlanden tot aan Amsterdam."
+      "text": "Een bruidstaart bestellen doe je niet zomaar. Het is de taart die centraal staat op een van de mooiste dagen van je leven. Daarom maak ik elke bruidstaart op maat, afgestemd op jullie smaak, thema en wensen. Of jullie nu dromen van een klassieke trouwtaart met verse bloemen, een moderne bruidstaart zonder fondant, of juist iets heel eigenzinnigs: samen maken we er iets bijzonders van.\n\nAls patissier uit Meerkerk in de Vijfheerenlanden werk ik met verse, hoogwaardige ingrediënten en ambachtelijke technieken. Geen fondant of marsepein tenzij jullie dat willen, mijn bruidstaarten zijn puur, smaakvol en mooi. Ik lever bruidstaarten door heel Utrecht en omstreken, van de Vijfheerenlanden tot aan Amsterdam."
     },
     "process": {
       "title": "Van proeverij tot pronkstuk",
@@ -73,7 +73,7 @@
         },
         {
           "title": "Handgemaakt met liefde",
-          "description": "In de dagen voor jullie bruiloft maak ik de taart helemaal vers. Elk laagje, elke vulling, elke decoratie — alles met de hand en met de beste ingrediënten."
+          "description": "In de dagen voor jullie bruiloft maak ik de taart helemaal vers. Elk laagje, elke vulling, elke decoratie, alles met de hand en met de beste ingrediënten."
         },
         {
           "title": "Bezorging & opbouw",
@@ -94,9 +94,9 @@
         "label": "Individuele gebakjes",
         "price": "€8,95",
         "unit": "per stuk",
-        "description": "Liever individuele gebakjes als trouwtaart-alternatief? Dat kan ook. Denk aan petit fours, moussetaartjes of eclairs — net zo feestelijk, maar dan voor elk een eigen portie."
+        "description": "Liever individuele gebakjes als trouwtaart-alternatief? Dat kan ook. Denk aan petit fours, moussetaartjes of eclairs. Net zo feestelijk, maar dan voor elk een eigen portie."
       },
-      "note": "De exacte bruidstaart prijs bespreek ik graag persoonlijk. Elke taart is uniek, en ik wil ervoor zorgen dat jullie precies krijgen wat jullie willen — binnen jullie budget."
+      "note": "De exacte bruidstaart prijs bespreek ik graag persoonlijk. Elke taart is uniek, en ik wil ervoor zorgen dat jullie precies krijgen wat jullie willen, binnen jullie budget."
     },
     "faq": {
       "title": "Veelgestelde vragen over bruidstaarten",
@@ -115,7 +115,7 @@
         },
         {
           "question": "Kan ik ook een custom bruidstaart met een speciaal thema laten maken?",
-          "answer": "Dat is juist wat ik het liefste doe! Of het nu gaat om een rustieke trouwtaart, een strakke moderne taart of iets dat nog niemand eerder heeft gemaakt — een taart laten maken die écht bij jullie past, daar word ik blij van."
+          "answer": "Dat is juist wat ik het liefste doe! Of het nu gaat om een rustieke trouwtaart, een strakke moderne taart of iets dat nog niemand eerder heeft gemaakt: een taart laten maken die écht bij jullie past, daar word ik blij van."
         },
         {
           "question": "Houden jullie rekening met allergieën?",
@@ -136,7 +136,7 @@
     },
     "intro": {
       "title": "Patisserie op het hoogste niveau",
-      "text": "Op zoek naar een patissier inhuren voor jouw hotel, restaurant of evenement? Met meer dan tien jaar ervaring in de tophoreca lever ik zakelijke patisserie die indruk maakt. Van dagverse desserts en petit fours tot complete sweet tables en seizoensgebonden patisserieconcepten — alles op maat en op het niveau dat je van een chef-patissier mag verwachten."
+      "text": "Op zoek naar een patissier inhuren voor jouw hotel, restaurant of evenement? Met meer dan tien jaar ervaring in de tophoreca lever ik zakelijke patisserie die indruk maakt. Van dagverse desserts en petit fours tot complete sweet tables en seizoensgebonden patisserieconcepten. Alles op maat en op het niveau dat je van een chef-patissier mag verwachten."
     },
     "services": {
       "title": "Wat ik bied",
@@ -161,24 +161,24 @@
     },
     "clients": {
       "title": "Klanten die mij vertrouwen",
-      "description": "Ik werk samen met toonaangevende hotels en restaurants door heel Nederland. Van het Waldorf Astoria Amsterdam tot lokale toprestaurants — dezelfde toewijding, dezelfde kwaliteit.",
+      "description": "Ik werk samen met toonaangevende hotels en restaurants door heel Nederland. Van het Waldorf Astoria Amsterdam tot lokale toprestaurants. Dezelfde toewijding, dezelfde kwaliteit.",
       "items": [
         {
           "name": "Waldorf Astoria Amsterdam",
           "type": "Vijfsterrenhotel",
-          "description": "Voor het Waldorf Astoria Amsterdam verzorg ik ambachtelijke koekjes en roomijs op maat. Elk product wordt ontwikkeld in lijn met het vijfsterrenniveau van het hotel — van seizoensgebonden smaken tot elegante presentaties voor de gasten.",
+          "description": "Voor het Waldorf Astoria Amsterdam verzorg ik ambachtelijke koekjes en roomijs op maat. Elk product wordt ontwikkeld in lijn met het vijfsterrenniveau van het hotel, van seizoensgebonden smaken tot elegante presentaties voor de gasten.",
           "image": "/images/zakelijk/waldorf-astoria-patisserie.jpg"
         },
         {
           "name": "The Local Club Gorinchem",
           "type": "Restaurant & Eventlocatie",
-          "description": "Bij The Local Club in Gorinchem lever ik dagverse desserts en ambachtelijk roomijs die het menu versterken. Een samenwerking waar creativiteit en kwaliteit hand in hand gaan — van klassieke desserts tot verrassende seizoenscreaties.",
+          "description": "Bij The Local Club in Gorinchem lever ik dagverse desserts en ambachtelijk roomijs die het menu versterken. Een samenwerking waar creativiteit en kwaliteit hand in hand gaan, van klassieke desserts tot verrassende seizoenscreaties.",
           "image": "/images/zakelijk/the-local-club-patisserie.webp"
         },
         {
           "name": "Het Raadhuis Goudriaan",
           "type": "Restaurant & Trouwlocatie",
-          "description": "Voor Het Raadhuis in Goudriaan maak ik roomijs en desserts die passen bij hun eerlijke keuken. Of het nu gaat om een diner of een bruiloft — de patisserie sluit naadloos aan bij de sfeer en het seizoen.",
+          "description": "Voor Het Raadhuis in Goudriaan maak ik roomijs en desserts die passen bij hun eerlijke keuken. Of het nu gaat om een diner of een bruiloft, de patisserie sluit naadloos aan bij de sfeer en het seizoen.",
           "image": "/images/zakelijk/het-raadhuis-patisserie.jpg"
         }
       ]
@@ -220,7 +220,7 @@
       "title": "De collectie",
       "price": "€12,95",
       "unit": "per doos van 5 stuks",
-      "description": "Elke doos bevat vijf verschillende koekjes — elk geïnspireerd op de smaken en tradities van de Vijfheerenlanden. Ambachtelijk, verrassend en onmiskenbaar Gijsbert.",
+      "description": "Elke doos bevat vijf verschillende koekjes, elk geïnspireerd op de smaken en tradities van de Vijfheerenlanden. Ambachtelijk, verrassend en onmiskenbaar Gijsbert.",
       "order_info": "Bestel per doos of in grotere aantallen als relatiegeschenk. Neem contact op voor zakelijke bestellingen en custom verpakkingen."
     },
     "occasions": {
@@ -254,8 +254,8 @@
     "story": {
       "title": "Mijn verhaal",
       "paragraphs": [
-        "Ik ben Gijsbert van de Kraats — Gijs voor vrienden — geboren in 1992 en al sinds mijn veertiende onafscheidelijk van de keuken. Wat begon als een bijbaantje werd al snel een roeping. In 2006 zette ik mijn eerste stappen in de professionele keuken, en in 2015 wist ik het zeker: patisserie is mijn vak.",
-        "Na jaren bij Van der Valk en Figi vond ik mijn plek bij Grand Hotel Karel V in Utrecht, waar ik acht jaar werkte als chef-patissier. Daar leerde ik wat het betekent om dag in, dag uit op het hoogste niveau te presteren. De precisie, de creativiteit, het samenspel van smaken en texturen — het houdt me nog elke dag bezig.",
+        "Ik ben Gijsbert van de Kraats, Gijs voor vrienden, geboren in 1992 en al sinds mijn veertiende onafscheidelijk van de keuken. Wat begon als een bijbaantje werd al snel een roeping. In 2006 zette ik mijn eerste stappen in de professionele keuken, en in 2015 wist ik het zeker: patisserie is mijn vak.",
+        "Na jaren bij Van der Valk en Figi vond ik mijn plek bij Grand Hotel Karel V in Utrecht, waar ik acht jaar werkte als chef-patissier. Daar leerde ik wat het betekent om dag in, dag uit op het hoogste niveau te presteren. De precisie, de creativiteit, het samenspel van smaken en texturen. Het houdt me nog elke dag bezig.",
         "In 2021 maakte ik de stap naar zelfstandig ondernemen. Vanuit mijn atelier aan de Energieweg 3F in Meerkerk werk ik nu voor een selecte groep klanten: van bruidsparen die dromen van de perfecte bruidstaart, tot tophotels die geen concessies doen aan kwaliteit. En met de Vijf Heeren koekjes breng ik een stukje Vijfheerenlanden naar de rest van Nederland."
       ]
     },
@@ -295,7 +295,7 @@
     },
     "education": {
       "title": "Onderwijs & Kennisdeling",
-      "text": "Naast mijn werk als patissier geef ik mijn kennis graag door. Ik verzorg masterclasses voor professionals en hobbyisten, gastlessen op vakscholen, examenafnames en het Basic Pastry opleidingsprogramma. Of het nu gaat om een teambuilding-workshop of een verdiepende cursus — ik deel mijn passie graag.",
+      "text": "Naast mijn werk als patissier geef ik mijn kennis graag door. Ik verzorg masterclasses voor professionals en hobbyisten, gastlessen op vakscholen, examenafnames en het Basic Pastry opleidingsprogramma. Of het nu gaat om een teambuilding-workshop of een verdiepende cursus: ik deel mijn passie graag.",
       "offerings": [
         {
           "title": "Masterclasses",
@@ -321,7 +321,7 @@
       "title": "Contact",
       "subtitle": "Laten we kennismaken"
     },
-    "intro": "Benieuwd wat ik voor je kan betekenen? Of het nu gaat om een bruidstaart, zakelijke patisserie, de Vijf Heeren koekjes of een workshop — ik hoor graag van je.",
+    "intro": "Benieuwd wat ik voor je kan betekenen? Of het nu gaat om een bruidstaart, zakelijke patisserie, de Vijf Heeren koekjes of een workshop: ik hoor graag van je.",
     "form": {
       "name": "Naam",
       "email": "E-mailadres",
@@ -374,7 +374,7 @@
   "cta": {
     "contact": "Neem contact op",
     "contact_heading": "Laten we samen iets moois maken",
-    "contact_subtitle": "Benieuwd wat ik voor je kan betekenen? Neem vrijblijvend contact op — ik denk graag met je mee.",
+    "contact_subtitle": "Benieuwd wat ik voor je kan betekenen? Neem vrijblijvend contact op, ik denk graag met je mee.",
     "contact_button": "Neem contact op",
     "call": "Bel mij",
     "email": "Stuur een e-mail",
@@ -388,7 +388,7 @@
   "seo": {
     "home": {
       "title": "Gijsbert van de Kraats | Ambachtelijke Patisserie Meerkerk",
-      "description": "Ambachtelijke bruidstaarten, zakelijke patisserie en de Vijf Heeren koekjes. Chef-patissier Gijsbert van de Kraats — Meerkerk, Vijfheerenlanden."
+      "description": "Ambachtelijke bruidstaarten, zakelijke patisserie en de Vijf Heeren koekjes. Chef-patissier Gijsbert van de Kraats, Meerkerk, Vijfheerenlanden."
     },
     "bruidstaarten": {
       "title": "Bruidstaart op Maat Bestellen | Gijsbert van de Kraats",
