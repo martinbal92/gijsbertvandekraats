@@ -1,0 +1,33 @@
+---
+interface Props {
+  delay?: number;
+  direction?: 'up' | 'left' | 'right' | 'none';
+  class?: string;
+}
+
+const {
+  delay,
+  direction = 'up',
+  class: className = '',
+} = Astro.props;
+
+// Build the data attributes
+const dataAttrs: Record<string, string> = {};
+if (direction && direction !== 'up') {
+  dataAttrs['data-direction'] = direction;
+}
+if (delay) {
+  dataAttrs['data-delay'] = String(delay);
+}
+
+// Build inline style for transition delay
+const style = delay ? `transition-delay: ${delay}ms` : undefined;
+---
+
+<div
+  class:list={['fade-in', className]}
+  {...dataAttrs}
+  style={style}
+>
+  <slot />
+</div>

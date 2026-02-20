@@ -353,6 +353,9 @@
   },
   "cta": {
     "contact": "Get in touch",
+    "contact_heading": "Let's create something beautiful together",
+    "contact_subtitle": "Curious what I can do for you? Get in touch — I'd love to think along with you.",
+    "contact_button": "Get in touch",
     "call": "Call me",
     "email": "Send an email",
     "whatsapp": "WhatsApp",

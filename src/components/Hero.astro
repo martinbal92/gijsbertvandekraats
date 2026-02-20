@@ -1,0 +1,88 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundImage: string;
+  ctaText?: string;
+  ctaHref?: string;
+  overlay?: 'light' | 'dark';
+}
+
+const {
+  title,
+  subtitle,
+  backgroundImage,
+  ctaText,
+  ctaHref,
+  overlay = 'dark',
+} = Astro.props;
+
+const overlayClass =
+  overlay === 'light'
+    ? 'bg-gradient-to-r from-cream/70 via-cream/40 to-transparent'
+    : 'bg-gradient-to-r from-chocolate/80 via-chocolate/50 to-chocolate/30';
+
+const textColor = overlay === 'light' ? 'text-chocolate' : 'text-cream';
+const subtitleColor =
+  overlay === 'light' ? 'text-chocolate/70' : 'text-cream/80';
+---
+
+<section class="relative h-[calc(100vh-4.5rem)] sm:h-[calc(100vh-5rem)] min-h-[500px] overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src={backgroundImage}
+      alt=""
+      class="w-full h-full object-cover"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- Gradient overlay -->
+  <div class={`absolute inset-0 ${overlayClass}`} />
+
+  <!-- Content -->
+  <div class="relative z-10 flex items-center h-full">
+    <div class="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <h1
+          class={`font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight ${textColor}`}
+        >
+          {title}
+        </h1>
+
+        {subtitle && (
+          <p
+            class={`mt-4 sm:mt-6 text-lg sm:text-xl font-body font-light leading-relaxed ${subtitleColor}`}
+          >
+            {subtitle}
+          </p>
+        )}
+
+        {ctaText && ctaHref && (
+          <div class="mt-8 sm:mt-10">
+            <a
+              href={ctaHref}
+              class="inline-flex items-center gap-2 bg-caramel text-white px-7 py-3.5 rounded-full text-base font-medium font-body shadow-lg hover:bg-caramel/90 hover:shadow-xl hover:translate-y-[-1px] active:translate-y-0 transition-all duration-200"
+            >
+              {ctaText}
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative bottom fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-cream to-transparent" />
+</section>

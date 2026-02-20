@@ -1,0 +1,57 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t, getLocalizedPath, pageSlugMap } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  variant?: 'light' | 'dark';
+}
+
+const { locale, variant = 'light' } = Astro.props;
+
+const heading = t(locale, 'cta.contact_heading');
+const subtitle = t(locale, 'cta.contact_subtitle');
+const buttonText = t(locale, 'cta.contact_button');
+
+const contactSlug = locale === 'en' ? (pageSlugMap['contact'] || 'contact') : 'contact';
+const contactHref = getLocalizedPath(`/${contactSlug}`, locale);
+
+const bgClass = variant === 'dark' ? 'bg-chocolate' : 'bg-cream';
+const headingColor = variant === 'dark' ? 'text-cream' : 'text-chocolate';
+const subtitleColor = variant === 'dark' ? 'text-cream/70' : 'text-chocolate/60';
+---
+
+<section class={`${bgClass} py-20 sm:py-24`}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="fade-in mx-auto max-w-2xl text-center">
+      <h2 class={`font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight ${headingColor}`}>
+        {heading}
+      </h2>
+
+      <!-- Decorative line -->
+      <span class="block mx-auto mt-4 w-12 h-0.5 bg-caramel rounded-full" aria-hidden="true" />
+
+      <p class={`mt-4 text-base sm:text-lg font-body leading-relaxed ${subtitleColor}`}>
+        {subtitle}
+      </p>
+
+      <div class="mt-8">
+        <a
+          href={contactHref}
+          class="inline-flex items-center gap-2 bg-caramel text-white px-8 py-3.5 rounded-full text-base font-medium font-body shadow-lg hover:bg-caramel/90 hover:shadow-xl hover:translate-y-[-1px] active:translate-y-0 transition-all duration-200"
+        >
+          {buttonText}
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
