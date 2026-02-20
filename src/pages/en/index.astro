@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { t, getLocalizedPath, pageSlugMap } from '../../i18n/utils';
+
+const locale = 'en';
+const title = t(locale, 'seo.home.title');
+const description = t(locale, 'seo.home.description');
+
+// Service card data with English slugs
+const services = [
+  {
+    title: t(locale, 'home.services.bruidstaarten.title'),
+    description: t(locale, 'home.services.bruidstaarten.description'),
+    image: '/images/bruidstaarten/bruidstaart-display.jpeg',
+    href: getLocalizedPath(`/${pageSlugMap['bruidstaarten']}`, locale),
+  },
+  {
+    title: t(locale, 'home.services.zakelijk.title'),
+    description: t(locale, 'home.services.zakelijk.description'),
+    image: '/images/zakelijk/waldorf-astoria-patisserie.jpg',
+    href: getLocalizedPath(`/${pageSlugMap['zakelijk']}`, locale),
+  },
+  {
+    title: t(locale, 'home.services.vijfheeren.title'),
+    description: t(locale, 'home.services.vijfheeren.description'),
+    image: '/images/vijfheeren/stroopkoekje-1.jpg',
+    href: getLocalizedPath(`/${pageSlugMap['vijfheeren']}`, locale),
+  },
+];
+
+// Gallery images
+const galleryImages = [
+  { src: '/images/bruidstaarten/bruidstaart-elegant.jpg', alt: 'Elegant wedding cake' },
+  { src: '/images/zakelijk/sweets-to-celebrate.jpeg', alt: 'Corporate patisserie' },
+  { src: '/images/general/occasion-cakes.jpg', alt: 'Occasion cakes' },
+  { src: '/images/vijfheeren/stroopkoekje-2.jpg', alt: 'Vijf Heeren cookies' },
+];
+
+// Client names
+const clients = [
+  t(locale, 'home.clients.waldorf'),
+  t(locale, 'home.clients.localclub'),
+  t(locale, 'home.clients.raadhuis'),
+  'Grand Hotel Karel V, Utrecht',
+];
+---
+
+<BaseLayout title={title} description={description} locale={locale}>
+
+  <!-- Hero Section -->
+  <Hero
+    title={t(locale, 'home.hero.title')}
+    subtitle={t(locale, 'home.hero.subtitle')}
+    backgroundImage="/images/hero/gijsbert-portrait.jpg"
+    ctaText={t(locale, 'home.hero.cta_secondary')}
+    ctaHref={getLocalizedPath(`/${pageSlugMap['contact']}`, locale)}
+  />
+
+  <!-- Services Section -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'home.services.title')}
+        subtitle={t(locale, 'home.services.subtitle')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {services.map((service, i) => (
+          <FadeIn delay={i * 150}>
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              image={service.image}
+              href={service.href}
+            />
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos Bar -->
+  <section class="py-16 sm:py-20 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <FadeIn>
+        <p class="text-center text-sm font-body font-medium uppercase tracking-widest text-chocolate/40 mb-10">
+          {t(locale, 'home.clients.title')}
+        </p>
+      </FadeIn>
+
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+        {clients.map((client, i) => (
+          <FadeIn delay={i * 100}>
+            <span class="font-heading text-lg sm:text-xl text-chocolate/30 whitespace-nowrap">
+              {client}
+            </span>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work Gallery -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {galleryImages.map((img, i) => (
+          <FadeIn delay={i * 100}>
+            <div class="relative aspect-square overflow-hidden rounded-2xl group">
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Image -->
+        <FadeIn direction="left">
+          <div class="relative aspect-4/3 overflow-hidden rounded-2xl">
+            <img
+              src="/images/about/gijsbert-portrait-1.jpg"
+              alt="Gijsbert van de Kraats"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </FadeIn>
+
+        <!-- Text -->
+        <FadeIn direction="right" delay={150}>
+          <div class="flex flex-col gap-6">
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-chocolate">
+              {t(locale, 'home.about_teaser.title')}
+            </h2>
+
+            <span class="block w-12 h-0.5 bg-caramel rounded-full" aria-hidden="true" />
+
+            <p class="text-base sm:text-lg font-body text-chocolate/65 leading-relaxed">
+              {t(locale, 'home.about_teaser.description')}
+            </p>
+
+            <div>
+              <a
+                href={getLocalizedPath(`/${pageSlugMap['over']}`, locale)}
+                class="inline-flex items-center gap-2 text-caramel font-medium font-body hover:underline transition-colors duration-200"
+              >
+                {t(locale, 'home.about_teaser.cta')}
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <ContactCTA locale={locale} variant="dark" />
+
+</BaseLayout>
