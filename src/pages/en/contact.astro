@@ -121,10 +121,14 @@ const subjectOptions = tObject(locale, 'contact.form.subject_options') as Record
                 ></textarea>
               </div>
 
+              <!-- Turnstile CAPTCHA -->
+              <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY" data-theme="light" data-language="en"></div>
+
               <!-- Submit Button -->
               <div>
                 <button
                   type="submit"
+                  id="contact-submit"
                   class="inline-flex items-center gap-2 bg-caramel text-white px-8 py-3.5 rounded-full text-base font-medium font-body shadow-lg hover:bg-caramel/90 hover:shadow-xl hover:translate-y-[-1px] active:translate-y-0 transition-all duration-200"
                 >
                   {t(locale, 'contact.form.submit')}
@@ -323,6 +327,20 @@ const subjectOptions = tObject(locale, 'contact.form.subject_options') as Record
   </section>
 
 </BaseLayout>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+
+<script>
+  // Prevent form submission without Turnstile token
+  const contactForm = document.querySelector('form');
+  contactForm?.addEventListener('submit', (e) => {
+    const token = contactForm.querySelector<HTMLInputElement>('[name="cf-turnstile-response"]');
+    if (!token || !token.value) {
+      e.preventDefault();
+      alert('Please complete the security check.');
+    }
+  });
+</script>
 
 <script>
   const btn = document.getElementById('load-map-btn');

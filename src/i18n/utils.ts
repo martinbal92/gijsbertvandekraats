@@ -69,8 +69,8 @@ export function getAlternateLocale(locale: Locale): Locale {
 export const pageSlugMap: Record<string, string> = {
   bruidstaarten: 'wedding-cakes',
   'zakelijke-patisserie': 'corporate-patisserie',
-  vijfheeren: 'vijf-heeren',
-  over: 'about',
+  'vijf-heeren': 'vijf-heeren',
+  'over-gijsbert': 'about',
   contact: 'contact',
 };
 
