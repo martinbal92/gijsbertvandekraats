@@ -4,9 +4,10 @@ interface Props {
   description: string;
   image: string;
   href: string;
+  linkText?: string;
 }
 
-const { title, description, image, href } = Astro.props;
+const { title, description, image, href, linkText = 'Bekijk meer' } = Astro.props;
 ---
 
 <a
@@ -36,7 +37,7 @@ const { title, description, image, href } = Astro.props;
 
     <!-- Arrow indicator -->
     <div class="mt-4 flex items-center gap-1.5 text-caramel text-sm font-medium font-body">
-      <span class="group-hover:underline">Bekijk meer</span>
+      <span class="group-hover:underline">{linkText}</span>
       <svg
         class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
         fill="none"

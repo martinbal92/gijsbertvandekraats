@@ -1,4 +1,24 @@
 ---
-// Redirect root to Dutch homepage (default locale)
-return Astro.redirect('/nl/', 301);
+// Root page: detect browser language client-side and redirect
 ---
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="/nl/" />
+    <title>Gijsbert van de Kraats | Patisserie</title>
+    <script is:inline>
+      const lang = navigator.language || navigator.userLanguage || 'nl';
+      const isEnglish = lang.toLowerCase().startsWith('en');
+      window.location.replace(isEnglish ? '/en/' : '/nl/');
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0;url=/nl/" />
+    </noscript>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/nl/">homepage</a>...</p>
+  </body>
+</html>
