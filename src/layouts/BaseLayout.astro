@@ -1,0 +1,52 @@
+---
+import type { Locale } from '../i18n/utils';
+import SEOHead from '../components/SEOHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  locale: Locale;
+}
+
+const { title, description, ogImage, locale } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale} class="scroll-smooth">
+  <head>
+    <SEOHead
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      locale={locale}
+    />
+  </head>
+  <body class="bg-cream text-chocolate font-body antialiased overflow-x-hidden">
+    <Header locale={locale} />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer locale={locale} />
+
+    <!-- Scroll-triggered fade-in animations -->
+    <script>
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

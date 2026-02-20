@@ -1,0 +1,54 @@
+---
+import type { Locale } from '../i18n/utils';
+import { getAlternateLocale, pageSlugMap, reversePageSlugMap } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const altLocale = getAlternateLocale(locale);
+
+// Build the alternate URL for the current page
+function getAlternateUrl(): string {
+  const pathname = Astro.url.pathname;
+  const parts = pathname.replace(/^\//, '').replace(/\/$/, '').split('/');
+  const currentLocale = parts[0];
+  const slug = parts[1] || '';
+
+  if (!slug) {
+    return `/${altLocale}`;
+  }
+
+  let altSlug: string;
+  if (currentLocale === 'nl') {
+    altSlug = pageSlugMap[slug] || slug;
+  } else {
+    altSlug = reversePageSlugMap[slug] || slug;
+  }
+
+  return `/${altLocale}/${altSlug}`;
+}
+
+const altUrl = getAlternateUrl();
+---
+
+<a
+  href={altUrl}
+  class="inline-flex items-center gap-1 rounded-full border border-caramel/30 px-3 py-1.5 text-xs font-medium tracking-wide transition-all duration-200 hover:border-caramel hover:shadow-sm"
+  aria-label={`Switch to ${altLocale === 'nl' ? 'Nederlands' : 'English'}`}
+>
+  <span class:list={[
+    'transition-colors duration-200',
+    locale === 'nl' ? 'text-warm-white bg-caramel rounded-full px-1.5 py-0.5 -ml-1' : 'text-chocolate/50 hover:text-chocolate'
+  ]}>
+    NL
+  </span>
+  <span class="text-chocolate/25">/</span>
+  <span class:list={[
+    'transition-colors duration-200',
+    locale === 'en' ? 'text-warm-white bg-caramel rounded-full px-1.5 py-0.5 -mr-1' : 'text-chocolate/50 hover:text-chocolate'
+  ]}>
+    EN
+  </span>
+</a>

@@ -1,0 +1,228 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t, pageSlugMap } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+// Navigation items with their translation keys and slug keys
+const navItems = [
+  { key: 'home', slug: '' },
+  { key: 'bruidstaarten', slug: 'bruidstaarten' },
+  { key: 'zakelijk', slug: 'zakelijk' },
+  { key: 'vijfheeren', slug: 'vijfheeren' },
+  { key: 'over', slug: 'over' },
+  { key: 'contact', slug: 'contact' },
+];
+
+function getNavUrl(slugKey: string): string {
+  if (!slugKey) return `/${locale}`;
+  const slug = locale === 'en' ? (pageSlugMap[slugKey] || slugKey) : slugKey;
+  return `/${locale}/${slug}`;
+}
+
+// Determine active page from current URL
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+function isActive(slugKey: string): boolean {
+  const navPath = getNavUrl(slugKey).replace(/\/$/, '');
+  return pathname === navPath;
+}
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18 sm:h-20">
+      <!-- Brand -->
+      <a
+        href={`/${locale}`}
+        class="font-heading text-xl sm:text-2xl font-bold text-chocolate tracking-tight hover:text-caramel transition-colors duration-200"
+      >
+        Van de Kraats
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+        {navItems.map(({ key, slug }) => (
+          <a
+            href={getNavUrl(slug)}
+            class:list={[
+              'relative px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-lg',
+              isActive(slug)
+                ? 'text-caramel'
+                : 'text-chocolate/70 hover:text-chocolate hover:bg-chocolate/5',
+            ]}
+          >
+            {t(locale, `nav.${key}`)}
+            {isActive(slug) && (
+              <span class="absolute bottom-0.5 left-3 right-3 h-0.5 bg-caramel rounded-full" />
+            )}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Right side: Language Switcher + Mobile Menu Button -->
+      <div class="flex items-center gap-3">
+        <LanguageSwitcher locale={locale} />
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          class="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-lg text-chocolate hover:bg-chocolate/5 transition-colors duration-200"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Menu</span>
+          <div class="w-5 flex flex-col gap-1.5" id="hamburger-icon">
+            <span class="block h-0.5 w-full bg-chocolate rounded-full transition-all duration-300 origin-center" />
+            <span class="block h-0.5 w-full bg-chocolate rounded-full transition-all duration-300" />
+            <span class="block h-0.5 w-full bg-chocolate rounded-full transition-all duration-300 origin-center" />
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Overlay -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
+  >
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-chocolate/20 backdrop-blur-sm" id="mobile-menu-backdrop" />
+
+    <!-- Menu Panel -->
+    <div
+      class="absolute top-0 right-0 h-full w-full max-w-sm bg-cream shadow-2xl transform translate-x-full transition-transform duration-300 ease-out"
+      id="mobile-menu-panel"
+    >
+      <div class="flex flex-col h-full pt-24 pb-8 px-6">
+        <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
+          {navItems.map(({ key, slug }) => (
+            <a
+              href={getNavUrl(slug)}
+              class:list={[
+                'group flex items-center gap-3 px-4 py-3.5 rounded-xl text-lg font-medium transition-all duration-200',
+                isActive(slug)
+                  ? 'text-caramel bg-caramel/10'
+                  : 'text-chocolate/80 hover:text-chocolate hover:bg-chocolate/5',
+              ]}
+            >
+              {isActive(slug) && (
+                <span class="w-1.5 h-1.5 rounded-full bg-caramel flex-shrink-0" />
+              )}
+              {t(locale, `nav.${key}`)}
+            </a>
+          ))}
+        </nav>
+
+        <!-- Mobile footer info -->
+        <div class="mt-auto pt-8 border-t border-chocolate/10">
+          <p class="text-sm text-chocolate/50 font-body">
+            Gijsbert van de Kraats
+          </p>
+          <p class="text-sm text-chocolate/40 mt-1">
+            Energieweg 3F, Meerkerk
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer to prevent content from going under fixed header -->
+<div class="h-18 sm:h-20" />
+
+<script>
+  // Header scroll effect
+  const header = document.getElementById('main-header');
+
+  function updateHeader() {
+    if (!header) return;
+    if (window.scrollY > 10) {
+      header.classList.add('bg-cream/95', 'backdrop-blur-md', 'shadow-sm');
+    } else {
+      header.classList.remove('bg-cream/95', 'backdrop-blur-md', 'shadow-sm');
+    }
+  }
+
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  // Mobile menu
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuPanel = document.getElementById('mobile-menu-panel');
+  const menuBackdrop = document.getElementById('mobile-menu-backdrop');
+  const hamburgerLines = document.querySelectorAll('#hamburger-icon span');
+
+  let isOpen = false;
+
+  function openMenu() {
+    if (!mobileMenu || !menuPanel) return;
+    isOpen = true;
+    mobileMenu.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    // Trigger animations after display change
+    requestAnimationFrame(() => {
+      mobileMenu.classList.remove('opacity-0');
+      mobileMenu.classList.add('opacity-100');
+      menuPanel.classList.remove('translate-x-full');
+      menuPanel.classList.add('translate-x-0');
+    });
+
+    // Animate hamburger to X
+    if (hamburgerLines.length === 3) {
+      (hamburgerLines[0] as HTMLElement).style.transform = 'translateY(4px) rotate(45deg)';
+      (hamburgerLines[1] as HTMLElement).style.opacity = '0';
+      (hamburgerLines[2] as HTMLElement).style.transform = 'translateY(-4px) rotate(-45deg)';
+    }
+
+    menuBtn?.setAttribute('aria-expanded', 'true');
+    menuBtn?.setAttribute('aria-label', 'Close menu');
+  }
+
+  function closeMenu() {
+    if (!mobileMenu || !menuPanel) return;
+    isOpen = false;
+
+    mobileMenu.classList.remove('opacity-100');
+    mobileMenu.classList.add('opacity-0');
+    menuPanel.classList.remove('translate-x-0');
+    menuPanel.classList.add('translate-x-full');
+
+    // Reset hamburger
+    if (hamburgerLines.length === 3) {
+      (hamburgerLines[0] as HTMLElement).style.transform = '';
+      (hamburgerLines[1] as HTMLElement).style.opacity = '';
+      (hamburgerLines[2] as HTMLElement).style.transform = '';
+    }
+
+    menuBtn?.setAttribute('aria-expanded', 'false');
+    menuBtn?.setAttribute('aria-label', 'Open menu');
+
+    setTimeout(() => {
+      mobileMenu.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  menuBtn?.addEventListener('click', () => {
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  menuBackdrop?.addEventListener('click', closeMenu);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) closeMenu();
+  });
+</script>
