@@ -35,7 +35,7 @@ function isActive(slugKey: string): boolean {
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 bg-cream transition-all duration-300"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-18 sm:h-20">
@@ -93,15 +93,17 @@ function isActive(slugKey: string): boolean {
   <!-- Mobile Navigation Overlay -->
   <div
     id="mobile-menu"
-    class="fixed inset-0 z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
+    class="fixed inset-0 z-[60] hidden lg:hidden"
+    style="opacity: 0; transition: opacity 300ms ease;"
   >
     <!-- Backdrop -->
     <div class="absolute inset-0 bg-chocolate/20 backdrop-blur-sm" id="mobile-menu-backdrop" />
 
     <!-- Menu Panel -->
     <div
-      class="absolute top-0 right-0 h-full w-full max-w-sm bg-cream shadow-2xl transform translate-x-full transition-transform duration-300 ease-out"
+      class="absolute top-0 right-0 h-full w-full max-w-sm shadow-2xl"
       id="mobile-menu-panel"
+      style="background-color: #FAF7F2; transform: translateX(100%); transition: transform 300ms ease-out;"
     >
       <div class="flex flex-col h-full pt-24 pb-8 px-6">
         <nav class="flex flex-col gap-1" aria-label="Mobile navigation">
@@ -147,9 +149,9 @@ function isActive(slugKey: string): boolean {
   function updateHeader() {
     if (!header) return;
     if (window.scrollY > 10) {
-      header.classList.add('bg-cream/95', 'backdrop-blur-md', 'shadow-sm');
+      header.style.boxShadow = '0 1px 3px 0 rgba(0,0,0,0.1)';
     } else {
-      header.classList.remove('bg-cream/95', 'backdrop-blur-md', 'shadow-sm');
+      header.style.boxShadow = 'none';
     }
   }
 
@@ -171,12 +173,12 @@ function isActive(slugKey: string): boolean {
     mobileMenu.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 
-    // Trigger animations after display change
+    // Double rAF to ensure display:block is painted before transition starts
     requestAnimationFrame(() => {
-      mobileMenu.classList.remove('opacity-0');
-      mobileMenu.classList.add('opacity-100');
-      menuPanel.classList.remove('translate-x-full');
-      menuPanel.classList.add('translate-x-0');
+      requestAnimationFrame(() => {
+        mobileMenu.style.opacity = '1';
+        menuPanel.style.transform = 'translateX(0)';
+      });
     });
 
     // Animate hamburger to X
@@ -194,10 +196,8 @@ function isActive(slugKey: string): boolean {
     if (!mobileMenu || !menuPanel) return;
     isOpen = false;
 
-    mobileMenu.classList.remove('opacity-100');
-    mobileMenu.classList.add('opacity-0');
-    menuPanel.classList.remove('translate-x-0');
-    menuPanel.classList.add('translate-x-full');
+    mobileMenu.style.opacity = '0';
+    menuPanel.style.transform = 'translateX(100%)';
 
     // Reset hamburger
     if (hamburgerLines.length === 3) {
