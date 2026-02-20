@@ -83,12 +83,12 @@
     },
     "pricing": {
       "title": "Wedding Cake Pricing",
-      "subtitle": "Transparent pricing, no surprises",
+      "subtitle": "Target prices so you know what to expect",
       "per_person": {
         "label": "Custom wedding cake",
         "price": "€9.95 – €12.95",
-        "unit": "per person",
-        "description": "Including tasting, custom design, fresh ingredients, delivery and setup at your venue. The per-person price depends on the complexity of the design and chosen flavours."
+        "unit": "per person (minimum 30 guests)",
+        "description": "These are target prices for a custom wedding cake, minimum 30 guests. Including tasting, custom design, fresh ingredients, delivery and setup at your venue. The exact per-person price depends on the complexity of the design and chosen flavours."
       },
       "individual": {
         "label": "Individual pastries",

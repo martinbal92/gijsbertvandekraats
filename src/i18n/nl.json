@@ -83,12 +83,12 @@
     },
     "pricing": {
       "title": "Bruidstaart Prijs",
-      "subtitle": "Transparante prijzen, geen verrassingen achteraf",
+      "subtitle": "Richtprijzen zodat je weet wat je kunt verwachten",
       "per_person": {
         "label": "Bruidstaart op maat",
         "price": "€9,95 – €12,95",
-        "unit": "per persoon",
-        "description": "Inclusief proeverij, ontwerp op maat, verse ingrediënten, bezorging en opbouw op locatie. De prijs per persoon hangt af van de complexiteit van het ontwerp en de gekozen smaken."
+        "unit": "per persoon (minimaal 30 personen)",
+        "description": "Dit zijn richtprijzen voor een bruidstaart op maat, minimaal 30 personen. Inclusief proeverij, ontwerp op maat, verse ingrediënten, bezorging en opbouw op locatie. De exacte prijs per persoon hangt af van de complexiteit van het ontwerp en de gekozen smaken."
       },
       "individual": {
         "label": "Individuele gebakjes",
