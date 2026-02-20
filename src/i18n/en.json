@@ -169,15 +169,39 @@
       "items": [
         {
           "name": "Waldorf Astoria Amsterdam",
-          "type": "Five-star hotel"
+          "type": "Five-star hotel",
+          "description": "For the Waldorf Astoria Amsterdam I create artisan cookies and custom ice cream. Each product is developed in line with the hotel's five-star standard — from seasonal flavours to elegant presentations for their guests.",
+          "image": "/images/zakelijk/waldorf-astoria-patisserie.jpg"
         },
         {
           "name": "The Local Club Gorinchem",
-          "type": "Restaurant & Event venue"
+          "type": "Restaurant & Event venue",
+          "description": "At The Local Club in Gorinchem I deliver daily-fresh desserts and artisan ice cream that elevate the menu. A collaboration where creativity and quality go hand in hand — from classic desserts to surprising seasonal creations.",
+          "image": "/images/zakelijk/the-local-club-patisserie.webp"
         },
         {
           "name": "Het Raadhuis Goudriaan",
-          "type": "Restaurant & Wedding venue"
+          "type": "Restaurant & Wedding venue",
+          "description": "For Het Raadhuis in Goudriaan I create ice cream and desserts that complement their honest kitchen. Whether it is a dinner or a wedding — the patisserie seamlessly matches the atmosphere and the season.",
+          "image": "/images/zakelijk/het-raadhuis-patisserie.jpg"
+        }
+      ]
+    },
+    "process": {
+      "title": "How it works",
+      "subtitle": "From introduction to lasting partnership in three steps",
+      "steps": [
+        {
+          "title": "Introduction",
+          "description": "We discuss your concept, target audience and wishes. I think along about the possibilities and how my patisserie fits your business."
+        },
+        {
+          "title": "Tasting menu",
+          "description": "I create a custom tasting menu so you can experience the quality and flavours firsthand. Together we put together the perfect offering."
+        },
+        {
+          "title": "Delivery & partnership",
+          "description": "After approval, delivery begins. Daily-fresh, reliable and always at the agreed level. I continue to think along about seasonal innovation."
         }
       ]
     },

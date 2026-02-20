@@ -169,15 +169,39 @@
       "items": [
         {
           "name": "Waldorf Astoria Amsterdam",
-          "type": "Vijfsterrenhotel"
+          "type": "Vijfsterrenhotel",
+          "description": "Voor het Waldorf Astoria Amsterdam verzorg ik ambachtelijke koekjes en roomijs op maat. Elk product wordt ontwikkeld in lijn met het vijfsterrenniveau van het hotel — van seizoensgebonden smaken tot elegante presentaties voor de gasten.",
+          "image": "/images/zakelijk/waldorf-astoria-patisserie.jpg"
         },
         {
           "name": "The Local Club Gorinchem",
-          "type": "Restaurant & Eventlocatie"
+          "type": "Restaurant & Eventlocatie",
+          "description": "Bij The Local Club in Gorinchem lever ik dagverse desserts en ambachtelijk roomijs die het menu versterken. Een samenwerking waar creativiteit en kwaliteit hand in hand gaan — van klassieke desserts tot verrassende seizoenscreaties.",
+          "image": "/images/zakelijk/the-local-club-patisserie.webp"
         },
         {
           "name": "Het Raadhuis Goudriaan",
-          "type": "Restaurant & Trouwlocatie"
+          "type": "Restaurant & Trouwlocatie",
+          "description": "Voor Het Raadhuis in Goudriaan maak ik roomijs en desserts die passen bij hun eerlijke keuken. Of het nu gaat om een diner of een bruiloft — de patisserie sluit naadloos aan bij de sfeer en het seizoen.",
+          "image": "/images/zakelijk/het-raadhuis-patisserie.jpg"
+        }
+      ]
+    },
+    "process": {
+      "title": "Hoe het werkt",
+      "subtitle": "Van kennismaking tot vaste samenwerking in drie stappen",
+      "steps": [
+        {
+          "title": "Kennismaking",
+          "description": "We bespreken jullie concept, doelgroep en wensen. Ik denk mee over de mogelijkheden en hoe mijn patisserie past bij jullie zaak."
+        },
+        {
+          "title": "Proefmenu",
+          "description": "Ik maak een proefmenu op maat, zodat jullie de kwaliteit en smaken kunnen ervaren. Samen stellen we het perfecte aanbod samen."
+        },
+        {
+          "title": "Levering & samenwerking",
+          "description": "Na goedkeuring start de levering. Dagvers, betrouwbaar en altijd op het afgesproken niveau. Ik blijf meedenken over seizoensgebonden vernieuwing."
         }
       ]
     },

@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { t, tObject } from '../../i18n/utils';
+
+const locale = 'en';
+const title = t(locale, 'seo.zakelijk.title');
+const description = t(locale, 'seo.zakelijk.description');
+
+// Services
+const serviceItems = tObject(locale, 'zakelijk.services.items') as Array<{ title: string; description: string }>;
+
+// Client case studies
+const clientItems = tObject(locale, 'zakelijk.clients.items') as Array<{ name: string; type: string; description: string; image: string }>;
+
+// Process steps
+const processSteps = tObject(locale, 'zakelijk.process.steps') as Array<{ title: string; description: string }>;
+
+// Service icons (SVG paths) — Heroicons outline style
+const serviceIcons = [
+  // Restaurant / plate — Hospitality Patisserie
+  'M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.379a48.474 48.474 0 00-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12',
+  // Calendar / event — Events & Catering
+  'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5',
+  // Lightbulb — Concept Development
+  'M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18',
+  // Sparkles — Seasonal Collections
+  'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z',
+];
+
+// Process step icons
+const processIcons = [
+  // Handshake / meeting
+  'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z',
+  // Clipboard / tasting
+  'M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.25 2.25 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25',
+  // Truck / delivery
+  'M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12',
+];
+---
+
+<BaseLayout title={title} description={description} locale={locale}>
+
+  <!-- Hero Section -->
+  <Hero
+    title={t(locale, 'zakelijk.hero.title')}
+    subtitle={t(locale, 'zakelijk.hero.subtitle')}
+    backgroundImage="/images/hero/zakelijk-hero.jpg"
+  />
+
+  <!-- Intro Section (SEO-critical) -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <FadeIn>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-chocolate mb-6">
+          {t(locale, 'zakelijk.intro.title')}
+        </h2>
+        <span class="block w-12 h-0.5 bg-caramel rounded-full mb-8" aria-hidden="true" />
+        <div class="font-body text-base sm:text-lg text-chocolate/70 leading-relaxed space-y-6">
+          {t(locale, 'zakelijk.intro.text').split('\n\n').map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'zakelijk.services.title')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {serviceItems.map((service, i) => (
+          <FadeIn delay={i * 100}>
+            <div class="bg-cream rounded-2xl p-8 border border-caramel/10 h-full flex flex-col items-center text-center">
+              <div class="flex items-center justify-center w-14 h-14 rounded-full bg-caramel/10 mb-6">
+                <svg class="w-7 h-7 text-caramel" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={serviceIcons[i]} />
+                </svg>
+              </div>
+              <h3 class="font-heading text-lg font-bold text-chocolate mb-3">
+                {service.title}
+              </h3>
+              <p class="font-body text-sm text-chocolate/60 leading-relaxed">
+                {service.description}
+              </p>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Case Studies -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'zakelijk.clients.title')}
+        subtitle={t(locale, 'zakelijk.clients.description')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 space-y-16 sm:space-y-24">
+        {clientItems.map((client, i) => (
+          <FadeIn delay={i * 100}>
+            <div class:list={[
+              'grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center',
+              i % 2 === 1 ? 'lg:[direction:rtl]' : '',
+            ]}>
+              <!-- Image -->
+              <div class="relative aspect-[4/3] overflow-hidden rounded-2xl lg:[direction:ltr]">
+                <img
+                  src={client.image}
+                  alt={client.name}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <!-- Text -->
+              <div class="flex flex-col gap-4 lg:[direction:ltr]">
+                <span class="text-xs font-medium uppercase tracking-widest text-caramel">
+                  {client.type}
+                </span>
+                <h3 class="font-heading text-2xl sm:text-3xl font-bold text-chocolate">
+                  {client.name}
+                </h3>
+                <span class="block w-12 h-0.5 bg-caramel rounded-full" aria-hidden="true" />
+                <p class="font-body text-base sm:text-lg text-chocolate/65 leading-relaxed">
+                  {client.description}
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'zakelijk.process.title')}
+        subtitle={t(locale, 'zakelijk.process.subtitle')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 relative">
+        <!-- Timeline connector (desktop only) -->
+        <div class="hidden sm:block absolute top-12 left-[16.67%] right-[16.67%] h-0.5 bg-caramel/20" aria-hidden="true" />
+
+        {processSteps.map((step, i) => (
+          <FadeIn delay={i * 150}>
+            <div class="flex flex-col items-center text-center relative">
+              <!-- Step number -->
+              <div class="relative z-10 flex items-center justify-center w-24 h-24 rounded-full bg-cream border-2 border-caramel/30 mb-6">
+                <span class="font-heading text-3xl font-bold text-caramel">{i + 1}</span>
+              </div>
+
+              <!-- Step icon (small, below number) -->
+              <svg class="w-5 h-5 text-caramel/50 mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={processIcons[i]} />
+              </svg>
+
+              <h3 class="font-heading text-lg sm:text-xl font-bold text-chocolate mb-3">
+                {step.title}
+              </h3>
+              <p class="font-body text-sm sm:text-base text-chocolate/60 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <ContactCTA locale={locale} variant="light" />
+
+</BaseLayout>
