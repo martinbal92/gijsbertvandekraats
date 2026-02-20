@@ -1,0 +1,391 @@
+{
+  "nav": {
+    "home": "Home",
+    "bruidstaarten": "Wedding Cakes",
+    "zakelijk": "Corporate Patisserie",
+    "vijfheeren": "Vijf Heeren",
+    "over": "About Gijsbert",
+    "contact": "Contact",
+    "language": "NL",
+    "languageLabel": "Nederlands"
+  },
+  "home": {
+    "hero": {
+      "title": "Artisan Patisserie",
+      "subtitle": "Patisserie | Food Services | Education",
+      "description": "Award-winning patisserie crafted with passion and precision. From custom wedding cakes to corporate pastry — handmade with the finest ingredients.",
+      "cta_primary": "View wedding cakes",
+      "cta_secondary": "Get in touch"
+    },
+    "services": {
+      "title": "What I create",
+      "subtitle": "From intimate weddings to grand corporate events — every creation receives the same care and craftsmanship.",
+      "bruidstaarten": {
+        "title": "Wedding Cakes",
+        "description": "A custom wedding cake that perfectly matches your celebration. Handcrafted, fondant-free, with flavours you won't find anywhere else."
+      },
+      "zakelijk": {
+        "title": "Corporate Patisserie",
+        "description": "Professional patisserie for hotels, restaurants and events. Consistent, surprising and tailor-made for your concept."
+      },
+      "vijfheeren": {
+        "title": "Vijf Heeren Cookies",
+        "description": "The artisan cookie from the Vijfheerenlanden region. Five unique flavours in an elegant gift box — the perfect present."
+      },
+      "onderwijs": {
+        "title": "Education & Workshops",
+        "description": "Masterclasses, guest lectures and the Basic Pastry training programme. Sharing my passion for patisserie with your team or guests."
+      }
+    },
+    "clients": {
+      "title": "Trusted by",
+      "subtitle": "I collaborate with leading hotels, restaurants and event venues throughout the Netherlands.",
+      "waldorf": "Waldorf Astoria Amsterdam",
+      "localclub": "The Local Club Gorinchem",
+      "raadhuis": "Het Raadhuis Goudriaan"
+    },
+    "about_teaser": {
+      "title": "Craftsmanship since 2006",
+      "description": "I have been in professional kitchens since the age of fourteen. After eight years as head pastry chef at Grand Hotel Karel V, I chose my own path in 2021. From my atelier in Meerkerk, I now create patisserie I truly stand behind — artisan, honest, and always with a touch of innovation.",
+      "cta": "More about my story"
+    }
+  },
+  "bruidstaarten": {
+    "hero": {
+      "title": "Custom Wedding Cakes",
+      "subtitle": "Unique wedding cakes for your dream celebration"
+    },
+    "intro": {
+      "title": "Your wedding, your cake",
+      "text": "Ordering a custom wedding cake is a personal journey. It is the centrepiece of one of the most beautiful days of your life. That is why every wedding cake I create is made to measure — tailored to your taste, theme and wishes. Whether you dream of a classic wedding cake adorned with fresh flowers, a modern fondant-free design, or something entirely unique: together we will create something extraordinary.\n\nAs a pastry chef based in Meerkerk, the Netherlands, I work with fresh, premium ingredients and artisan techniques. No fondant or marzipan unless you want it — my wedding cakes are pure, flavourful and beautiful. I deliver custom wedding cakes throughout Utrecht, the Netherlands and beyond."
+    },
+    "process": {
+      "title": "From tasting to masterpiece",
+      "subtitle": "How ordering a custom wedding cake works",
+      "steps": [
+        {
+          "title": "Introduction & tasting",
+          "description": "We start with a complimentary tasting at my atelier in Meerkerk. You will sample different flavours while we discuss your wishes, theme and budget. The tasting is included in the price of your wedding cake."
+        },
+        {
+          "title": "Custom design",
+          "description": "Based on our conversation, I create a design that perfectly complements your wedding. I help you think through shapes, flavours, decoration and how the cake fits your overall vision."
+        },
+        {
+          "title": "Handcrafted with love",
+          "description": "In the days before your wedding, I make the cake entirely fresh. Every layer, every filling, every decoration — all by hand with the finest ingredients."
+        },
+        {
+          "title": "Delivery & setup",
+          "description": "On the big day, I deliver the wedding cake to your venue and carefully set everything up. You do not have to worry about a thing."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Wedding Cake Pricing",
+      "subtitle": "Transparent pricing, no surprises",
+      "per_person": {
+        "label": "Custom wedding cake",
+        "price": "€9.95 – €12.95",
+        "unit": "per person",
+        "description": "Including tasting, custom design, fresh ingredients, delivery and setup at your venue. The per-person price depends on the complexity of the design and chosen flavours."
+      },
+      "individual": {
+        "label": "Individual pastries",
+        "price": "€8.95",
+        "unit": "per piece",
+        "description": "Prefer individual pastries as a wedding cake alternative? That is also possible. Think petit fours, mousse cakes or éclairs — equally festive, but a personal portion for each guest."
+      },
+      "note": "I would love to discuss the exact pricing in person. Every cake is unique, and I want to make sure you get exactly what you envision — within your budget."
+    },
+    "faq": {
+      "title": "Frequently asked questions about wedding cakes",
+      "items": [
+        {
+          "question": "How far in advance should I order a wedding cake?",
+          "answer": "I recommend getting in touch at least three months before your wedding. During spring and summer season, my schedule fills up quickly. The earlier you contact me, the more date flexibility you will have."
+        },
+        {
+          "question": "Can I order a wedding cake without fondant?",
+          "answer": "Absolutely! Most of my wedding cakes are made without fondant and without marzipan. I prefer working with fresh creams, ganache, fruit and edible flowers. The result is not only more beautiful, but above all much more delicious."
+        },
+        {
+          "question": "What does a custom wedding cake cost?",
+          "answer": "A custom wedding cake starts at €9.95 per person. The exact price depends on the design, flavours and number of guests. During the tasting, I always discuss costs transparently."
+        },
+        {
+          "question": "Do you deliver outside the Vijfheerenlanden region?",
+          "answer": "Yes, I deliver wedding cakes throughout Utrecht and the wider Netherlands. From Meerkerk to Amsterdam, from Gorinchem to The Hague. Delivery costs are discussed upfront."
+        },
+        {
+          "question": "Can I have a wedding cake with a special theme?",
+          "answer": "That is exactly what I love most! Whether it is a rustic wedding cake, a sleek modern design, or something no one has ever made before — creating a cake that truly reflects who you are is what drives me."
+        },
+        {
+          "question": "Do you accommodate allergies?",
+          "answer": "Of course. I can make wedding cakes that are free from nuts, lactose, gluten or other allergens. Please mention this during the tasting so we can ensure a cake everyone can enjoy."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Your dream wedding cake starts here",
+      "description": "Curious what I can create for your wedding? Schedule a complimentary tasting and discover the possibilities.",
+      "button": "Schedule a tasting"
+    }
+  },
+  "zakelijk": {
+    "hero": {
+      "title": "Corporate Patisserie",
+      "subtitle": "Professional patisserie for hospitality and events"
+    },
+    "intro": {
+      "title": "Patisserie at the highest level",
+      "text": "Looking to hire a pastry chef for your hotel, restaurant or event? With over ten years of experience in top hospitality, I deliver corporate patisserie that impresses. From daily-fresh desserts and petit fours to complete sweet tables and seasonal patisserie concepts — everything custom-made and at the level you expect from a professional chef pâtissier."
+    },
+    "services": {
+      "title": "What I offer",
+      "items": [
+        {
+          "title": "Hospitality Patisserie",
+          "description": "Daily-fresh desserts, petit fours and pastries for hotels and restaurants. I collaborate on your menu and consistently deliver at the highest level."
+        },
+        {
+          "title": "Events & Catering",
+          "description": "Sweet tables, dessert buffets and custom patisserie for corporate events, weddings and celebrations."
+        },
+        {
+          "title": "Product Launch & Concept Development",
+          "description": "Developing a unique patisserie concept for your brand or venue? I am happy to collaborate from idea to execution."
+        },
+        {
+          "title": "Seasonal Collections",
+          "description": "Patisserie collections that move with the seasons. Fresh ingredients, current flavours and a changing assortment that surprises guests."
+        }
+      ]
+    },
+    "clients": {
+      "title": "Clients who trust me",
+      "description": "I collaborate with leading hotels and restaurants throughout the Netherlands. From the Waldorf Astoria Amsterdam to local top restaurants — the same dedication, the same quality.",
+      "items": [
+        {
+          "name": "Waldorf Astoria Amsterdam",
+          "type": "Five-star hotel"
+        },
+        {
+          "name": "The Local Club Gorinchem",
+          "type": "Restaurant & Event venue"
+        },
+        {
+          "name": "Het Raadhuis Goudriaan",
+          "type": "Restaurant & Wedding venue"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Hire a pastry chef for your business?",
+      "description": "Tell me about your concept and wishes. I am happy to discuss the possibilities with no obligation.",
+      "button": "Get in touch"
+    }
+  },
+  "vijfheeren": {
+    "hero": {
+      "title": "Vijf Heeren Cookies",
+      "subtitle": "The artisan cookie from the Vijfheerenlanden"
+    },
+    "intro": {
+      "title": "Five flavours, one story",
+      "text": "The Vijf Heeren cookies are a tribute to the region where I live and work: the Vijfheerenlanden. Five unique cookies, each with its own character and flavour profile, brought together in an elegant gift box. Handcrafted in my atelier in Meerkerk with honest, fresh ingredients. The perfect gift, corporate present or personal moment with your coffee."
+    },
+    "product": {
+      "title": "The collection",
+      "price": "€12.95",
+      "unit": "per box of 5",
+      "description": "Each box contains five different cookies — each inspired by the flavours and traditions of the Vijfheerenlanden. Artisan, surprising and unmistakably Gijsbert.",
+      "order_info": "Order per box or in larger quantities as a corporate gift. Get in touch for business orders and custom packaging."
+    },
+    "occasions": {
+      "title": "For every occasion",
+      "items": [
+        {
+          "title": "Corporate gift",
+          "description": "Surprise clients and business partners with an artisan gift from the region. Available with personalised packaging."
+        },
+        {
+          "title": "Personal gift",
+          "description": "A thoughtful and unique gift for birthdays, holidays or as a thank-you. Beautifully packaged and ready to give."
+        },
+        {
+          "title": "With your coffee",
+          "description": "Turn a coffee moment into something special. Five flavours to discover and share."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Order Vijf Heeren",
+      "description": "Want to order the Vijf Heeren cookies or curious about the possibilities for corporate orders?",
+      "button": "Order now"
+    }
+  },
+  "over": {
+    "hero": {
+      "title": "About Gijsbert",
+      "subtitle": "Pastry chef by passion, entrepreneur by conviction"
+    },
+    "story": {
+      "title": "My story",
+      "paragraphs": [
+        "I am Gijsbert van de Kraats — Gijs to friends — born in 1992 and inseparable from the kitchen since the age of fourteen. What started as a part-time job quickly became a calling. In 2006 I took my first steps in the professional kitchen, and by 2015 I knew for certain: patisserie is my craft.",
+        "After years at Van der Valk and Figi, I found my place at Grand Hotel Karel V in Utrecht, where I worked for eight years as head pastry chef. There I learned what it means to perform at the highest level day in, day out. The precision, the creativity, the interplay of flavours and textures — it still drives me every single day.",
+        "In 2021 I made the leap to independence. From my atelier at Energieweg 3F in Meerkerk, I now work for a select group of clients: from couples dreaming of the perfect wedding cake, to top hotels that make no compromises on quality. And with the Vijf Heeren cookies, I bring a piece of the Vijfheerenlanden to the rest of the Netherlands."
+      ]
+    },
+    "awards": {
+      "title": "Awards & Recognition",
+      "items": [
+        {
+          "year": "2024",
+          "title": "Vijfheerenlanden Vijfje",
+          "result": "2nd place"
+        },
+        {
+          "year": "2020",
+          "title": "Dobla Pastry Battle",
+          "result": "2nd place"
+        },
+        {
+          "year": "2019",
+          "title": "Patisserie Decathlon",
+          "result": "1st place"
+        },
+        {
+          "year": "2014",
+          "title": "Taugé Challenge",
+          "result": "1st place"
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Education & Certifications",
+      "items": [
+        "Specialised Working Chef",
+        "Certified Instructor",
+        "Ice Cream Specialist",
+        "Patisserie Next Level"
+      ]
+    },
+    "education": {
+      "title": "Education & Knowledge Sharing",
+      "text": "Alongside my work as a pastry chef, I love passing on my knowledge. I provide masterclasses for professionals and enthusiasts, guest lectures at culinary schools, exam administration and the Basic Pastry training programme. Whether it is a team-building workshop or an in-depth course — I am happy to share my passion.",
+      "offerings": [
+        {
+          "title": "Masterclasses",
+          "description": "Hands-on workshops for professionals and teams looking to elevate their patisserie skills."
+        },
+        {
+          "title": "Guest Lectures",
+          "description": "Inspiring lectures at culinary schools and hospitality programmes, with a focus on practice."
+        },
+        {
+          "title": "Exam Administration",
+          "description": "Official exam administration for patisserie training programmes."
+        },
+        {
+          "title": "Basic Pastry",
+          "description": "A complete training programme for those who want to learn the fundamentals of professional patisserie."
+        }
+      ]
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "Let's get acquainted"
+    },
+    "intro": "Curious what I can do for you? Whether it is a wedding cake, corporate patisserie, the Vijf Heeren cookies or a workshop — I would love to hear from you.",
+    "form": {
+      "name": "Name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "subject": "Subject",
+      "subject_options": {
+        "bruidstaart": "Wedding Cake",
+        "zakelijk": "Corporate Patisserie",
+        "vijfheeren": "Vijf Heeren Cookies",
+        "workshop": "Workshop / Masterclass",
+        "anders": "Other"
+      },
+      "message": "Message",
+      "date": "Preferred date",
+      "guests": "Number of guests",
+      "submit": "Send message",
+      "success": "Thank you for your message! I will get back to you as soon as possible.",
+      "error": "Something went wrong. Please try again or contact me directly by phone or email."
+    },
+    "info": {
+      "title": "Reach me directly",
+      "address": {
+        "label": "Atelier",
+        "value": "Energieweg 3F, Meerkerk"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "06 12278654"
+      },
+      "email": {
+        "label": "Email",
+        "value": "info@gijsbertvandekraats.nl"
+      },
+      "hours": {
+        "label": "Available",
+        "value": "Mon–Sat 09:00–18:00"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Artisan patisserie from Meerkerk",
+    "nav_title": "Pages",
+    "contact_title": "Contact",
+    "social_title": "Follow me",
+    "copyright": "© {year} Gijsbert van de Kraats. All rights reserved.",
+    "kvk": "Chamber of Commerce: see website",
+    "privacy": "Privacy policy",
+    "terms": "Terms & conditions"
+  },
+  "cta": {
+    "contact": "Get in touch",
+    "call": "Call me",
+    "email": "Send an email",
+    "whatsapp": "WhatsApp",
+    "order": "Order",
+    "read_more": "Read more",
+    "view_all": "View all",
+    "back": "Back",
+    "plan_tasting": "Schedule a tasting"
+  },
+  "seo": {
+    "home": {
+      "title": "Gijsbert van de Kraats | Artisan Patisserie Netherlands",
+      "description": "Artisan wedding cakes, corporate patisserie and Vijf Heeren cookies. Award-winning pastry chef Gijsbert van de Kraats — Meerkerk, the Netherlands."
+    },
+    "bruidstaarten": {
+      "title": "Custom Wedding Cake Netherlands | Gijsbert van de Kraats",
+      "description": "Order a custom wedding cake from an award-winning pastry chef in the Netherlands. Fondant-free, fresh ingredients. Complimentary tasting included. Delivery nationwide."
+    },
+    "zakelijk": {
+      "title": "Corporate Patisserie & Pastry Chef for Hire | Gijsbert van de Kraats",
+      "description": "Professional patisserie for hotels, restaurants and events. Hire a pastry chef for top-quality desserts, sweet tables and seasonal concepts in the Netherlands."
+    },
+    "vijfheeren": {
+      "title": "Vijf Heeren Cookies | Artisan Gift from the Netherlands",
+      "description": "Five unique artisan cookies in an elegant gift box. The perfect gift or corporate present from Meerkerk, the Netherlands."
+    },
+    "over": {
+      "title": "About Gijsbert van de Kraats | Pastry Chef Netherlands",
+      "description": "Award-winning pastry chef with 20 years of experience. From Grand Hotel Karel V to his own atelier in Meerkerk. Winner of the Patisserie Decathlon 2019."
+    },
+    "contact": {
+      "title": "Contact | Gijsbert van de Kraats Patisserie",
+      "description": "Get in touch for wedding cakes, corporate patisserie or Vijf Heeren cookies. Atelier in Meerkerk, delivery throughout the Netherlands."
+    }
+  }
+}
