@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { t, tObject, getLocalizedPath } from '../../i18n/utils';
+
+const locale = 'nl';
+const title = t(locale, 'seo.vijfheeren.title');
+const description = t(locale, 'seo.vijfheeren.description');
+
+// Product images
+const productImages = [
+  { src: '/images/vijfheeren/stroopkoekje-1.jpg', alt: 'Vijf Heeren stroopkoekje — handbeschilderd chocolade ontwerp' },
+  { src: '/images/vijfheeren/stroopkoekje-2.jpg', alt: 'Vijf Heeren stroopkoekje — ambachtelijk detail' },
+  { src: '/images/vijfheeren/stroopkoekje-3.jpg', alt: 'Vijf Heeren stroopkoekje — geschenkdoos presentatie' },
+];
+
+// Product details
+const product = tObject(locale, 'vijfheeren.product') as {
+  title: string;
+  price: string;
+  unit: string;
+  description: string;
+  order_info: string;
+};
+
+// Occasions
+const occasions = tObject(locale, 'vijfheeren.occasions.items') as Array<{
+  title: string;
+  description: string;
+}>;
+
+// Occasion icons (SVG paths)
+const occasionIcons = [
+  // Gift / corporate
+  'M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z',
+  // Heart / personal gift
+  'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z',
+  // Coffee cup
+  'M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z',
+];
+
+// Contact path for order button
+const contactSlug = 'contact';
+const contactHref = getLocalizedPath(`/${contactSlug}`, locale);
+
+// Product JSON-LD schema
+const productSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "De Vijf Heeren Stroopkoekjes",
+  "description": "Ambachtelijke stroopkoekjes uit de Vijfheerenlanden",
+  "image": "https://gijsbertvandekraats.nl/images/vijfheeren/stroopkoekje-1.jpg",
+  "brand": {
+    "@type": "Brand",
+    "name": "Gijsbert van de Kraats"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "12.95",
+    "priceCurrency": "EUR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://gijsbertvandekraats.nl/nl/vijf-heeren"
+  }
+});
+---
+
+<BaseLayout title={title} description={description} locale={locale}>
+
+  <!-- Product Schema JSON-LD -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={productSchema} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero
+    title={t(locale, 'vijfheeren.hero.title')}
+    subtitle={t(locale, 'vijfheeren.hero.subtitle')}
+    backgroundImage="/images/hero/vijfheeren-hero.jpg"
+  />
+
+  <!-- Intro / Story & Heritage Section -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <FadeIn>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-chocolate mb-6">
+          {t(locale, 'vijfheeren.intro.title')}
+        </h2>
+        <span class="block w-12 h-0.5 bg-caramel rounded-full mb-8" aria-hidden="true" />
+        <div class="font-body text-base sm:text-lg text-chocolate/70 leading-relaxed space-y-6">
+          {t(locale, 'vijfheeren.intro.text').split('\n\n').map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Product Showcase — Image Grid -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+        {productImages.map((img, i) => (
+          <FadeIn delay={i * 100}>
+            <div class="relative aspect-[3/4] overflow-hidden rounded-2xl group">
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details & Pricing -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={product.title}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16">
+        <FadeIn>
+          <div class="bg-warm-white rounded-2xl p-8 sm:p-10 border border-caramel/10">
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
+              <!-- Product info -->
+              <div class="flex-1">
+                <p class="font-body text-base sm:text-lg text-chocolate/70 leading-relaxed mb-6">
+                  {product.description}
+                </p>
+                <p class="font-body text-sm sm:text-base text-chocolate/60 leading-relaxed">
+                  {product.order_info}
+                </p>
+              </div>
+
+              <!-- Price card -->
+              <div class="sm:ml-8 flex-shrink-0 text-center sm:text-right">
+                <span class="font-heading text-4xl sm:text-5xl font-bold text-caramel">
+                  {product.price}
+                </span>
+                <span class="block text-sm font-body text-chocolate/50 mt-1">
+                  {product.unit}
+                </span>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </div>
+    </div>
+  </section>
+
+  <!-- Occasions Section -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'vijfheeren.occasions.title')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {occasions.map((item, i) => (
+          <FadeIn delay={i * 150}>
+            <div class="flex flex-col items-center text-center">
+              <div class="flex items-center justify-center w-16 h-16 rounded-full bg-cream border-2 border-caramel/20 mb-6">
+                <svg class="w-7 h-7 text-caramel" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d={occasionIcons[i]} />
+                </svg>
+              </div>
+              <h3 class="font-heading text-lg sm:text-xl font-bold text-chocolate mb-3">
+                {item.title}
+              </h3>
+              <p class="font-body text-sm sm:text-base text-chocolate/60 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Order CTA Section -->
+  <section class="py-20 sm:py-24 bg-chocolate">
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 text-center">
+      <FadeIn>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-cream">
+          {t(locale, 'vijfheeren.cta.title')}
+        </h2>
+        <span class="block mx-auto mt-4 w-12 h-0.5 bg-caramel rounded-full" aria-hidden="true" />
+        <p class="mt-4 text-base sm:text-lg font-body leading-relaxed text-cream/70">
+          {t(locale, 'vijfheeren.cta.description')}
+        </p>
+
+        <!-- Prominent price -->
+        <div class="mt-6">
+          <span class="font-heading text-2xl font-bold text-caramel">
+            {product.price}
+          </span>
+          <span class="text-sm font-body text-cream/50 ml-2">
+            {product.unit}
+          </span>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href={contactHref}
+            class="inline-flex items-center gap-2 bg-caramel text-white px-8 py-3.5 rounded-full text-base font-medium font-body shadow-lg hover:bg-caramel/90 hover:shadow-xl hover:translate-y-[-1px] active:translate-y-0 transition-all duration-200"
+          >
+            {t(locale, 'vijfheeren.cta.button')}
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <ContactCTA locale={locale} variant="light" />
+
+</BaseLayout>
