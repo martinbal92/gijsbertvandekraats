@@ -24,6 +24,7 @@ const { title, description, ogImage, locale } = Astro.props;
       ogImage={ogImage}
       locale={locale}
     />
+    <slot name="head" />
   </head>
   <body class="bg-cream text-chocolate font-body antialiased overflow-x-hidden">
     <Header locale={locale} />

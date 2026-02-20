@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import FadeIn from '../../components/FadeIn.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { t, tObject, getLocalizedPath } from '../../i18n/utils';
+
+const locale = 'nl';
+const title = t(locale, 'seo.bruidstaarten.title');
+const description = t(locale, 'seo.bruidstaarten.description');
+
+// Gallery images
+const galleryImages = [
+  { src: '/images/bruidstaarten/bruidstaart-display.jpeg', alt: 'Bruidstaart op maat — elegante presentatie' },
+  { src: '/images/bruidstaarten/bruidstaart-setup.jpeg', alt: 'Bruidstaart opbouw op locatie' },
+  { src: '/images/bruidstaarten/bruidstaart-design.jpeg', alt: 'Bruidstaart ontwerp op maat' },
+  { src: '/images/bruidstaarten/bruidstaart-detail.jpeg', alt: 'Bruidstaart detail decoratie' },
+  { src: '/images/bruidstaarten/bruidstaart-kenny-cindy.jpg', alt: 'Bruidstaart voor Kenny en Cindy' },
+  { src: '/images/bruidstaarten/bruidstaart-elegant.jpg', alt: 'Elegante bruidstaart zonder fondant' },
+];
+
+// Process steps
+const processSteps = tObject(locale, 'bruidstaarten.process.steps') as Array<{ title: string; description: string }>;
+
+// Pricing
+const pricingPerPerson = tObject(locale, 'bruidstaarten.pricing.per_person') as { label: string; price: string; unit: string; description: string };
+const pricingIndividual = tObject(locale, 'bruidstaarten.pricing.individual') as { label: string; price: string; unit: string; description: string };
+
+// FAQ items
+const faqItems = tObject(locale, 'bruidstaarten.faq.items') as Array<{ question: string; answer: string }>;
+
+// Build FAQ JSON-LD schema
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer,
+    },
+  })),
+});
+
+// Step icons (SVG paths)
+const stepIcons = [
+  // Handshake / meeting
+  'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z',
+  // Cake / tasting
+  'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+  // Design / pencil
+  'M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z',
+  // Truck / delivery
+  'M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0',
+];
+---
+
+<BaseLayout title={title} description={description} locale={locale}>
+
+  <!-- FAQ Schema JSON-LD -->
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={faqSchema} />
+  </Fragment>
+
+  <!-- Hero Section -->
+  <Hero
+    title={t(locale, 'bruidstaarten.hero.title')}
+    subtitle={t(locale, 'bruidstaarten.hero.subtitle')}
+    backgroundImage="/images/hero/bruidstaart-hero.jpg"
+  />
+
+  <!-- Intro Section (SEO-critical) -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <FadeIn>
+        <h2 class="font-heading text-3xl sm:text-4xl font-bold leading-tight tracking-tight text-chocolate mb-6">
+          {t(locale, 'bruidstaarten.intro.title')}
+        </h2>
+        <span class="block w-12 h-0.5 bg-caramel rounded-full mb-8" aria-hidden="true" />
+        <div class="font-body text-base sm:text-lg text-chocolate/70 leading-relaxed space-y-6">
+          {t(locale, 'bruidstaarten.intro.text').split('\n\n').map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {galleryImages.map((img, i) => (
+          <FadeIn delay={i * 100}>
+            <div class="relative aspect-[3/4] overflow-hidden rounded-2xl group">
+              <img
+                src={img.src}
+                alt={img.alt}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'bruidstaarten.process.title')}
+        subtitle={t(locale, 'bruidstaarten.process.subtitle')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 relative">
+        <!-- Timeline connector (desktop only) -->
+        <div class="hidden lg:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 bg-caramel/20" aria-hidden="true" />
+
+        {processSteps.map((step, i) => (
+          <FadeIn delay={i * 150}>
+            <div class="flex flex-col items-center text-center relative">
+              <!-- Step number -->
+              <div class="relative z-10 flex items-center justify-center w-24 h-24 rounded-full bg-warm-white border-2 border-caramel/30 mb-6">
+                <span class="font-heading text-3xl font-bold text-caramel">{i + 1}</span>
+              </div>
+
+              <!-- Step icon (small, below number) -->
+              <svg class="w-5 h-5 text-caramel/50 mb-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d={stepIcons[i]} />
+              </svg>
+
+              <h3 class="font-heading text-lg sm:text-xl font-bold text-chocolate mb-3">
+                {step.title}
+              </h3>
+              <p class="font-body text-sm sm:text-base text-chocolate/60 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="py-20 sm:py-24 bg-warm-white">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'bruidstaarten.pricing.title')}
+        subtitle={t(locale, 'bruidstaarten.pricing.subtitle')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <!-- Per person pricing card -->
+        <FadeIn>
+          <div class="bg-cream rounded-2xl p-8 sm:p-10 border border-caramel/10 h-full flex flex-col">
+            <h3 class="font-heading text-xl font-bold text-chocolate mb-2">
+              {pricingPerPerson.label}
+            </h3>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="font-heading text-3xl sm:text-4xl font-bold text-caramel">
+                {pricingPerPerson.price}
+              </span>
+            </div>
+            <span class="text-sm font-body text-chocolate/50 mb-4">
+              {pricingPerPerson.unit}
+            </span>
+            <p class="font-body text-sm sm:text-base text-chocolate/60 leading-relaxed mt-auto">
+              {pricingPerPerson.description}
+            </p>
+          </div>
+        </FadeIn>
+
+        <!-- Individual pastries pricing card -->
+        <FadeIn delay={150}>
+          <div class="bg-cream rounded-2xl p-8 sm:p-10 border border-caramel/10 h-full flex flex-col">
+            <h3 class="font-heading text-xl font-bold text-chocolate mb-2">
+              {pricingIndividual.label}
+            </h3>
+            <div class="flex items-baseline gap-2 mb-1">
+              <span class="font-heading text-3xl sm:text-4xl font-bold text-caramel">
+                {pricingIndividual.price}
+              </span>
+            </div>
+            <span class="text-sm font-body text-chocolate/50 mb-4">
+              {pricingIndividual.unit}
+            </span>
+            <p class="font-body text-sm sm:text-base text-chocolate/60 leading-relaxed mt-auto">
+              {pricingIndividual.description}
+            </p>
+          </div>
+        </FadeIn>
+      </div>
+
+      <!-- Pricing note -->
+      <FadeIn delay={300}>
+        <p class="mt-8 text-center font-body text-sm sm:text-base text-chocolate/50 leading-relaxed max-w-2xl mx-auto italic">
+          {t(locale, 'bruidstaarten.pricing.note')}
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 sm:py-24 bg-cream">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <SectionHeading
+        title={t(locale, 'bruidstaarten.faq.title')}
+        centered
+      />
+
+      <div class="mt-12 sm:mt-16 space-y-4">
+        {faqItems.map((item, i) => (
+          <FadeIn delay={i * 75}>
+            <details class="group bg-warm-white rounded-2xl border border-caramel/10 overflow-hidden">
+              <summary class="flex items-center justify-between cursor-pointer px-6 sm:px-8 py-5 sm:py-6 font-heading text-base sm:text-lg font-semibold text-chocolate hover:text-caramel transition-colors duration-200 list-none [&::-webkit-details-marker]:hidden">
+                <span class="pr-4">{item.question}</span>
+                <svg
+                  class="w-5 h-5 text-caramel shrink-0 transition-transform duration-300 group-open:rotate-45"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                </svg>
+              </summary>
+              <div class="px-6 sm:px-8 pb-6 sm:pb-8">
+                <p class="font-body text-sm sm:text-base text-chocolate/65 leading-relaxed">
+                  {item.answer}
+                </p>
+              </div>
+            </details>
+          </FadeIn>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <ContactCTA locale={locale} variant="dark" />
+
+</BaseLayout>
